@@ -1,0 +1,2 @@
+backend/custom_phi_model/model.safetensors filter=lfs diff=lfs merge=lfs -text
+backend/custom_phi_model/checkpoints/** filter=lfs diff=lfs merge=lfs -text
