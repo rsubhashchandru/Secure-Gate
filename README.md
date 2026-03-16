@@ -42,6 +42,32 @@
 ### Prerequisites
 - Python 3.12+
 - Node.js 18+
+- Git LFS (for model files)
+
+#### Install Git LFS
+```bash
+# Windows: Download from https://git-lfs.com/
+# macOS: brew install git-lfs
+# Linux: sudo apt-get install git-lfs
+
+# Initialize Git LFS
+git lfs install
+```
+
+### Cloning with Git LFS
+
+```bash
+# Clone repository with Git LFS support
+git clone https://github.com/YOUR_USERNAME/SecureGate.git
+cd SecureGate
+
+# Pull large model files from Git LFS
+git lfs pull
+
+# Verify model files are downloaded
+ls -lh backend/custom_phi_model/
+# Should show: model.safetensors (~500MB), config.json, tokenizer.json, etc.
+```
 
 ### Backend
 
@@ -71,6 +97,17 @@ npm run dev
 ```
 
 The UI runs at **http://localhost:3000** and proxies API calls to the backend.
+
+### Verification
+
+```bash
+# Test model loading
+python -c "from backend.biobert_engine import BioBertEngine; engine = BioBertEngine(); print('✅ Model loaded successfully')"
+
+# Test API endpoints
+curl http://localhost:8000/api/health
+# Should return: {"status":"healthy","model_loaded":true}
+```
 
 ## API Endpoints
 
@@ -137,6 +174,78 @@ SecureGate/
 16. Device identifiers
 
 **Kept**: Gender, Age (with >89 → 90+ aggregation)
+
+## Git LFS Troubleshooting
+
+### Common Issues
+
+#### Issue 1: Git LFS not installed
+```bash
+# Error: "This repository is configured for Git LFS but 'git-lfs' was not found"
+# Solution: Install Git LFS
+git lfs install
+```
+
+#### Issue 2: Large files not downloaded
+```bash
+# Check if LFS files are present
+git lfs ls-files
+
+# Force pull all LFS files
+git lfs pull --include="*"
+
+# If still missing, fetch and checkout
+git lfs fetch --all
+git lfs checkout
+```
+
+#### Issue 3: Authentication errors
+```bash
+# If using HTTPS, may need personal access token
+# Use SSH instead for better authentication:
+git remote set-url origin git@github.com:YOUR_USERNAME/SecureGate.git
+```
+
+#### Issue 4: Model files missing
+```bash
+# Verify model directory exists
+ls -la backend/custom_phi_model/
+
+# Check file sizes (should be ~500MB for model.safetensors)
+ls -lh backend/custom_phi_model/model.safetensors
+
+# If files are small (few KB), they weren't downloaded properly
+git lfs pull
+```
+
+#### Issue 5: Model loading errors
+```bash
+# Test model loading
+python -c "from backend.biobert_engine import BioBertEngine; engine = BioBertEngine(); print('Model loaded')"
+
+# If fails, check model files integrity
+python -c "import torch; print(torch.load('backend/custom_phi_model/model.safetensors', map_location='cpu').keys())"
+```
+
+### Git LFS Commands Reference
+
+```bash
+# Check what's tracked by LFS
+git lfs track
+
+# List LFS files in current commit
+git lfs ls-files
+
+# Pull all LFS files
+git lfs pull
+
+# Fetch all LFS files
+git lfs fetch --all
+
+# Clean and re-download LFS files
+git lfs prune
+git lfs pull
+```
 
 ---
 

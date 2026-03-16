@@ -1,4 +1,4 @@
-// File: E:\Users\subha\OneDrive\Desktop\SecureGate\frontend\src\app\layout.tsx
+// File: E:\Users\subha\OneDrive\Desktop\Neural Nexus\Neural Nexus\SecureGate\frontend\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
