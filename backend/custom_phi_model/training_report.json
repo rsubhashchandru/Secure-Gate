@@ -1,0 +1,161 @@
+{
+  "base_model": "dmis-lab/biobert-v1.1",
+  "epochs": 15,
+  "batch_size": 4,
+  "grad_accumulation": 4,
+  "learning_rate": 3e-05,
+  "fp16": true,
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "train_sentences": 379,
+  "eval_sentences": 67,
+  "total_labels": 21,
+  "train_metrics": {
+    "train_runtime": 211.0666,
+    "train_samples_per_second": 26.935,
+    "train_steps_per_second": 1.706,
+    "total_flos": 742737029254128.0,
+    "train_loss": 2.2559152656131323,
+    "epoch": 15.0
+  },
+  "eval_metrics": {
+    "eval_loss": 0.5226123332977295,
+    "eval_precision": 0.8573996361428393,
+    "eval_recall": 0.8625142423091531,
+    "eval_f1": 0.8577659913738344,
+    "eval_accuracy": 0.8625142423091531,
+    "eval_runtime": 0.8437,
+    "eval_samples_per_second": 79.409,
+    "eval_steps_per_second": 10.667,
+    "epoch": 15.0
+  },
+  "classification_report": {
+    "B-Address": {
+      "precision": 0.7333333333333333,
+      "recall": 0.2619047619047619,
+      "f1-score": 0.38596491228070173,
+      "support": 42.0
+    },
+    "B-Date": {
+      "precision": 0.6956521739130435,
+      "recall": 0.6881720430107527,
+      "f1-score": 0.6918918918918919,
+      "support": 93.0
+    },
+    "B-DoctorName": {
+      "precision": 0.7,
+      "recall": 0.25,
+      "f1-score": 0.3684210526315789,
+      "support": 28.0
+    },
+    "B-Email": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 1.0
+    },
+    "B-HospitalID": {
+      "precision": 0.9230769230769231,
+      "recall": 0.7058823529411765,
+      "f1-score": 0.8,
+      "support": 17.0
+    },
+    "B-Name": {
+      "precision": 0.3974358974358974,
+      "recall": 0.2767857142857143,
+      "f1-score": 0.3263157894736842,
+      "support": 112.0
+    },
+    "B-Organization": {
+      "precision": 0.5676567656765676,
+      "recall": 0.5752508361204013,
+      "f1-score": 0.5714285714285714,
+      "support": 299.0
+    },
+    "B-Other": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 16.0
+    },
+    "B-Phone": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 8.0
+    },
+    "I-Address": {
+      "precision": 0.71875,
+      "recall": 0.2839506172839506,
+      "f1-score": 0.40707964601769914,
+      "support": 81.0
+    },
+    "I-Date": {
+      "precision": 0.6593886462882096,
+      "recall": 0.8753623188405797,
+      "f1-score": 0.7521793275217933,
+      "support": 345.0
+    },
+    "I-DoctorName": {
+      "precision": 0.6666666666666666,
+      "recall": 0.43243243243243246,
+      "f1-score": 0.5245901639344263,
+      "support": 111.0
+    },
+    "I-Email": {
+      "precision": 0.9230769230769231,
+      "recall": 1.0,
+      "f1-score": 0.96,
+      "support": 12.0
+    },
+    "I-HospitalID": {
+      "precision": 0.9278350515463918,
+      "recall": 0.8910891089108911,
+      "f1-score": 0.9090909090909091,
+      "support": 101.0
+    },
+    "I-Name": {
+      "precision": 0.45595854922279794,
+      "recall": 0.42105263157894735,
+      "f1-score": 0.43781094527363185,
+      "support": 418.0
+    },
+    "I-Organization": {
+      "precision": 0.5882852292020373,
+      "recall": 0.5602263540824576,
+      "f1-score": 0.5739130434782609,
+      "support": 1237.0
+    },
+    "I-Other": {
+      "precision": 0.782608695652174,
+      "recall": 0.4462809917355372,
+      "f1-score": 0.5684210526315789,
+      "support": 121.0
+    },
+    "I-Phone": {
+      "precision": 0.8888888888888888,
+      "recall": 0.5106382978723404,
+      "f1-score": 0.6486486486486487,
+      "support": 47.0
+    },
+    "O": {
+      "precision": 0.9191045928213045,
+      "recall": 0.9368951136989535,
+      "f1-score": 0.9279145885286783,
+      "support": 12709.0
+    },
+    "accuracy": 0.8625142423091531,
+    "macro avg": {
+      "precision": 0.6077746493053242,
+      "recall": 0.47978545129994193,
+      "f1-score": 0.5186142390964239,
+      "support": 15798.0
+    },
+    "weighted avg": {
+      "precision": 0.8573996361428393,
+      "recall": 0.8625142423091531,
+      "f1-score": 0.8577659913738344,
+      "support": 15798.0
+    }
+  }
+}
